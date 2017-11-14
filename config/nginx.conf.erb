@@ -15,6 +15,8 @@ http {
 
 	server_tokens off;
 
+	deny all;
+
 	log_format l2met 'measure#nginx.service=$request_time request_id=$http_x_request_id';
 	access_log logs/nginx/access.log l2met;
 	error_log logs/nginx/error.log;
@@ -37,8 +39,6 @@ http {
 		client_max_body_size <%= ENV['NGINX_CLIENT_MAX_BODY_SIZE'] || 1 %>M;
 
 		location / {
-            
-            deny	all;
 
 			if ($http_x_forwarded_proto != 'https') {
   			rewrite ^ https://$host$request_uri? permanent;
