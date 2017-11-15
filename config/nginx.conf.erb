@@ -36,10 +36,10 @@ http {
 		keepalive_timeout 5;
 		client_max_body_size <%= ENV['NGINX_CLIENT_MAX_BODY_SIZE'] || 1 %>M;
 
-		deny all;
 
 		location / {
 
+			deny all;
 			if ($http_x_forwarded_proto != 'https') {
   			rewrite ^ https://$host$request_uri? permanent;
 			}
