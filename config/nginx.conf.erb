@@ -39,7 +39,6 @@ http {
 
 		location / {
 
-			deny all;
 			if ($http_x_forwarded_proto != 'https') {
   			rewrite ^ https://$host$request_uri? permanent;
 			}
