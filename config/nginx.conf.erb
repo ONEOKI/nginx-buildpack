@@ -32,7 +32,7 @@ http {
 
 	server {
 		# listen <%= ENV["PORT"] %>;
-		listen <%= ENV["HEROKU_PRIVATE_IP"] %>:1234 ssl;
+		listen <%= ENV["HEROKU_PRIVATE_IP"] %>:1234;
 
 		server_name _;
 		keepalive_timeout 5;
